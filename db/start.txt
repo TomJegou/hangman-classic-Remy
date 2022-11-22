@@ -1,0 +1,22 @@
+Welcome to the Hangman Game !
+
+    +---+
+    |   |
+    0   |
+   /|\  |
+   / \  |
+        |
+   BYE  |
+=========
+
+The goal of the game is to find the word
+You will have 10 attempts 
+If you use your 10 attempts you lose 
+
+You can either put a letter or a full word
+If you put a wrong letter, you lose 1 attempt
+If you put a wrong word, you lose 2 attempts
+
+In a case of victory, you will be able to add a word in your selected level
+
+Good Luck !
