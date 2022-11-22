@@ -10,7 +10,7 @@ import (
 func Display(attempt int) {
 	colorIRed := "\033[0;91m"
 	colorReset := "\033[0m"
-	draw, err := os.Open("hangman.txt")
+	draw, err := os.Open("db/hangman.txt")
 	if err != nil {
 		fmt.Println((colorIRed), "The hangman can't open !", (colorReset))
 	}

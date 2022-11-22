@@ -8,7 +8,7 @@ import (
 
 func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int) {
 	for {
-		fmt.Println("Hangman activated +1")
+		fmt.Println("Hangman activated")
 		var word string
 		for level := range levelChan {
 			if level != "" {
