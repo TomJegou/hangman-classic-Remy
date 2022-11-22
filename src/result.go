@@ -2,7 +2,7 @@ package src
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"github.com/TomJegou/hangman-classic-Remy-12/src/util"
 )
@@ -27,13 +27,13 @@ func Result(attempt int, word string, result string, nameDB string) {
 //cette fonction permet d'ajouter un mot à la base de donnée du niveau du joueur
 
 func AddWord(nameDB string) {
-	data, err := ioutil.ReadFile(nameDB)
+	data, err := os.ReadFile(nameDB)
 	if err != nil {
 		fmt.Println("The file can't be read")
 	}
 	word := string(data) + util.Input() + "\n"
 	wordByte := []byte(word)
-	ioutil.WriteFile(nameDB, wordByte, 0644)
+	os.WriteFile(nameDB, wordByte, 0644)
 }
 
 // cette fonction sert à compter les points du joueur selon son nombre d'essai restant et le niveau choisi
