@@ -59,7 +59,7 @@ func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-ch
 					attemptChan <- attempt
 					break
 				}
-			} else if letter == "" || letter < "a" || letter > "z" {
+			} else if letter == "" {
 				responseChan <- wordDash
 				attemptChan <- attempt
 				continue
