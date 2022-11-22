@@ -6,7 +6,7 @@ import (
 
 //cette fonction rassemble toutes les fonctions de création du hangman et le génère
 
-func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int) {
+func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordchan chan<- string) {
 	for {
 		fmt.Println("Hangman activated")
 		var word string
@@ -48,6 +48,7 @@ func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-ch
 					if attempt == 0 {
 						responseChan <- "889ce65f137b3b9aa1005f417d7972c948b8bb6360cbdd4118cb05a29d37905744fc0dbc3d17c1de02689d837bfea5bb8114a994f9c1a53dddb993139ab2974c"
 						attemptChan <- attempt
+						wordchan <- word
 						break
 					}
 				}
@@ -69,6 +70,7 @@ func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-ch
 				if attempt == 0 {
 					responseChan <- "889ce65f137b3b9aa1005f417d7972c948b8bb6360cbdd4118cb05a29d37905744fc0dbc3d17c1de02689d837bfea5bb8114a994f9c1a53dddb993139ab2974c"
 					attemptChan <- attempt
+					wordchan <- word
 					break
 				}
 			}

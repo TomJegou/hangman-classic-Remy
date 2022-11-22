@@ -3,13 +3,6 @@ package src
 //cette fonction sert à effectuer les affichages de chaque début de tour de boucle
 
 func StartGame(word_dash string, used_letter string, used_word string, lettertmp string) string {
-	//colorCyan := "\033[0;36m"
-	//colorReset := "\033[0m"
-	//fmt.Println(word_dash)
-	//fmt.Println("Letters already tried and not correct :", used_letter)
-	//fmt.Println("Words already tried and not correct :", used_word)
-	//fmt.Print("\033[36mChoose\033[0m : ")
-	//letter := util.Input()
 	letter := lettertmp
 	letter = Accent(letter)
 	letter = Convert(letter)
