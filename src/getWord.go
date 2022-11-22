@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TomJegou/hangman-classic-Remy-12/util"
+	"github.com/TomJegou/hangman-classic-Remy-12/src/util"
 )
 
 //cette fonction prend un mot au hasard dans le fichier words

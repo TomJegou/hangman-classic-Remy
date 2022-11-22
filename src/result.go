@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/TomJegou/hangman-classic-Remy-12/util"
+	"github.com/TomJegou/hangman-classic-Remy-12/src/util"
 )
 
 // cette fonction renvoie le résultat du programme

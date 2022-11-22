@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/TomJegou/hangman-classic-Remy-12/util"
+	"github.com/TomJegou/hangman-classic-Remy-12/src/util"
 )
 
 // Cette fonction a pour but d'afficher les règles du pendu
