@@ -28,7 +28,7 @@ func GetWord(mot string) string {
 	} else {
 		fmt.Println("\033[31mInvalid input !\033[0m")
 	}
-	data, err = ioutil.ReadFile("../db/" + nameDB)
+	data, err = ioutil.ReadFile("db/" + nameDB)
 	if err != nil {
 		fmt.Println("The file can't be read")
 		os.Exit(1)
