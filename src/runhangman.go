@@ -16,14 +16,11 @@ out:
 			fmt.Println("Quiting Hangman")
 			return
 		case <-levelChan:
-			level := <-levelChan
-			fmt.Println(level)
-			if level != "" {
-				word = GetWord(level)
+			fmt.Println(<-levelChan)
+			if <-levelChan != "" {
+				word = GetWord(<-levelChan)
 				fmt.Println(word)
 				break out
-			} else {
-				continue
 			}
 		default:
 			continue
