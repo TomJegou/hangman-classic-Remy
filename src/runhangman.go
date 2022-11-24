@@ -4,29 +4,12 @@ import (
 	"fmt"
 )
 
-var Quit = false
-
-func exitFunc(quitChan <-chan bool) {
-	for signal := range quitChan {
-		if signal {
-			Quit = true
-			return
-		} else {
-			Quit = false
-		}
-	}
-}
-
 //cette fonction rassemble toutes les fonctions de création du hangman et le génère
 
 func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordChan chan<- string, quitChan <-chan bool) {
-	go exitFunc(quitChan)
 	fmt.Println("Hangman activated")
 	var word string
 	for level := range levelChan {
-		if Quit {
-			return
-		}
 		if level != "" {
 			word = GetWord(level)
 			break
@@ -36,9 +19,6 @@ func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-ch
 	wordDash := Dash(word)
 	responseChan <- wordDash
 	for content := range inputChan {
-		if Quit {
-			return
-		}
 		if content != "" && content == "b0c9713aa009f4fcf39920d0d7eda80714b0c44ff2f98205278be112c755ca45e5386cbe7a9fca360ad22f06e45f80a8b8f23838725d15f889e202f5cea26359" {
 			break
 		}
@@ -50,9 +30,6 @@ func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-ch
 	attemptChan <- attempt
 	fmt.Println("bienvenu dans la boucle")
 	for content := range inputChan {
-		if Quit {
-			return
-		}
 		fmt.Println("Début de la boucle de hang")
 		letter := StartGame(wordDash, usedLetters, usedWords, content)
 		if !CheckUsedLetter(usedLetters, letter) {
