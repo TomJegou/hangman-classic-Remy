@@ -15,8 +15,8 @@ out:
 		case <-quitChan:
 			fmt.Println("Quiting Hangman")
 			return
-		case <-levelChan:
-			word = GetWord(<-levelChan)
+		case level := <-levelChan:
+			word = GetWord(level)
 			fmt.Println(word)
 			break out
 		default:
