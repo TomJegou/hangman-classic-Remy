@@ -23,7 +23,7 @@ func StartGame(word_dash string, used_letter string, used_word string, lettertmp
 	letter = Accent(letter)
 	letter = Convert(letter)
 	if runtime.GOOS == "windows" {
-		return letter[:len(letter)-2]
+		return letter[:len(letter)-1]
 	} else {
 		return letter
 	}
