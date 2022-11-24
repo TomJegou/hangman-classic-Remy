@@ -22,7 +22,11 @@ func StartGame(word_dash string, used_letter string, used_word string, lettertmp
 	letter := lettertmp
 	letter = Accent(letter)
 	letter = Convert(letter)
-	return letter
+	if runtime.GOOS == "windows" {
+		return letter[:len(letter)-2]
+	} else {
+		return letter
+	}
 }
 
 // cette fonction convertie les lettres majuscules en lettres minuscules
