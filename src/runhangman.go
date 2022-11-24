@@ -19,6 +19,7 @@ out:
 	for {
 		select {
 		case <-quitChan:
+			fmt.Println("Quiting Hangman")
 			return
 		case <-levelChan:
 			level := <-levelChan
