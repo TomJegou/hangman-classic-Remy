@@ -22,8 +22,10 @@ out:
 			return
 		case <-levelChan:
 			level := <-levelChan
+			fmt.Println(level)
 			if level != "" {
 				word = GetWord(level)
+				fmt.Println(word)
 				break out
 			} else {
 				continue
