@@ -7,13 +7,12 @@ import (
 var Quit = false
 
 func exitFunc(quitChan <-chan bool) {
-	for {
-		select {
-		case <-quitChan:
+	for signal := range quitChan {
+		if signal {
 			Quit = true
 			return
-		default:
-			continue
+		} else {
+			Quit = false
 		}
 	}
 }
