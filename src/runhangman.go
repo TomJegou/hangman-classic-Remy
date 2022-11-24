@@ -26,7 +26,6 @@ out:
 				continue
 			}
 		default:
-			fmt.Println("Wating for level")
 			continue
 		}
 	}
