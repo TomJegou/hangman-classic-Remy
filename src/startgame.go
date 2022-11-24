@@ -1,5 +1,15 @@
 package src
 
+// Cette fonction a pour but d'afficher des tirets à la place du mot à deviner
+
+func Dash(word string) string {
+	wordBytes := []byte(word)
+	for index := 0; index < len(word); index++ {
+		wordBytes[index] = 95
+	}
+	return string(wordBytes)
+}
+
 //cette fonction sert à effectuer les affichages de chaque début de tour de boucle
 
 func StartGame(word_dash string, used_letter string, used_word string, lettertmp string) string {
