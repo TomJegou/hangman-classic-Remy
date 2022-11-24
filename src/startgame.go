@@ -1,10 +1,16 @@
 package src
 
+import "runtime"
+
 // Cette fonction a pour but d'afficher des tirets à la place du mot à deviner
 
 func Dash(word string) string {
 	wordBytes := []byte(word)
-	for index := 0; index < len(word); index++ {
+	i := 0
+	if runtime.GOOS == "windows" {
+		i = 1
+	}
+	for index := 0; index < len(word)-i; index++ {
 		wordBytes[index] = 95
 	}
 	return string(wordBytes)
