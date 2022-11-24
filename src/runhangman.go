@@ -40,6 +40,7 @@ out:
 	for content := range inputChan {
 		fmt.Println("Début de la boucle de hang")
 		letter := StartGame(wordDash, usedLetters, usedWords, content)
+		fmt.Println(letter)
 		if !CheckUsedLetter(usedLetters, letter) {
 			if letter != "" {
 				fmt.Println("\033[31mYou already try it once !\033[0m")
