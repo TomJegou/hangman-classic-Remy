@@ -11,6 +11,7 @@ func exitFunc(quitChan <-chan bool) {
 		select {
 		case <-quitChan:
 			Quit = true
+			return
 		default:
 			continue
 		}
