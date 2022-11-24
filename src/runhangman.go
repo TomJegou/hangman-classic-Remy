@@ -9,12 +9,6 @@ import (
 func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordChan chan<- string, quitChan <-chan bool) {
 	fmt.Println("Hangman activated")
 	word := ""
-	// for level := range levelChan {
-	// 	if level != "" {
-	// 		word = GetWord(level)
-	// 		break
-	// 	}
-	// }
 out:
 	for {
 		select {
@@ -32,6 +26,7 @@ out:
 				continue
 			}
 		default:
+			fmt.Println("Wating for level")
 			continue
 		}
 	}
