@@ -34,6 +34,11 @@ out:
 	var attempt int
 	usedLetters := []string{}
 	usedLetterChan <- usedLetters
+	for content := range inputChan {
+		if content != "" && content == "b0c9713aa009f4fcf39920d0d7eda80714b0c44ff2f98205278be112c755ca45e5386cbe7a9fca360ad22f06e45f80a8b8f23838725d15f889e202f5cea26359" {
+			break
+		}
+	}
 	attempt = 10
 	attemptChan <- attempt
 	fmt.Println("bienvenu dans la boucle")
