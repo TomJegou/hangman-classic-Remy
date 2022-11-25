@@ -6,8 +6,8 @@ import (
 
 //cette fonction rassemble toutes les fonctions de création du hangman et le génère
 
-func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordChan chan<- string, quitChan <-chan bool) {
-	fmt.Println("Hangman activated fnkn")
+func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordChan chan<- string, quitChan <-chan bool, usedLetterChan chan<- []string) {
+	fmt.Println("Hangman activated")
 	word := ""
 out:
 	for {
@@ -32,8 +32,8 @@ out:
 		}
 	}
 	var attempt int
-	usedLetters := ""
-	usedWords := ""
+	usedLetters := []string{}
+	usedLetterChan <- usedLetters
 	attempt = 10
 	attemptChan <- attempt
 	fmt.Println("bienvenu dans la boucle")
@@ -46,7 +46,7 @@ out:
 			return
 		case input := <-inputChan:
 			fmt.Println("Début de la boucle de hang")
-			letter := StartGame(wordDash, usedLetters, usedWords, input)
+			letter := StartGame(input)
 			fmt.Println(letter)
 			if !CheckUsedLetter(usedLetters, letter) {
 				if letter != "" {
@@ -79,7 +79,7 @@ out:
 				attemptChan <- attempt
 				continue
 			} else {
-				usedLetters += letter
+				usedLetters = append(usedLetters, letter)
 				attempt--
 				Display(attempt)
 				if attempt == 0 {

@@ -18,7 +18,7 @@ func Dash(word string) string {
 
 //cette fonction sert à effectuer les affichages de chaque début de tour de boucle
 
-func StartGame(word_dash string, used_letter string, used_word string, lettertmp string) string {
+func StartGame(lettertmp string) string {
 	letter := lettertmp
 	letter = Accent(letter)
 	letter = Convert(letter)

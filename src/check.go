@@ -13,7 +13,7 @@ func CheckLetterInWord(word string, letter string) bool {
 
 // cette fonction vérifie si la lettre entrée n'est pas déjà essayée et fausse
 
-func CheckUsedLetter(letters string, letter string) bool {
+func CheckUsedLetter(letters []string, letter string) bool {
 	for _, value := range letters {
 		if string(value) == letter {
 			return false
