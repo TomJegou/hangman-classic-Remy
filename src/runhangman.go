@@ -7,7 +7,7 @@ import (
 //cette fonction rassemble toutes les fonctions de création du hangman et le génère
 
 func Hangman(inputChan <-chan string, responseChan chan<- string, levelChan <-chan string, attemptChan chan<- int, wordChan chan<- string, quitChan <-chan bool) {
-	fmt.Println("Hangman activated")
+	fmt.Println("Hangman activated fnkn")
 	word := ""
 out:
 	for {
