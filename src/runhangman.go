@@ -69,6 +69,7 @@ out:
 				}
 			} else if CheckLetterInWord(word, letter) {
 				wordDash = Replace(word, wordDash, letter)
+				usedLetters = append(usedLetters, letter)
 				if wordDash == word {
 					responseChan <- "50536101b1c465eafbecc8fca26eeb18a2ac8a2f83570bade315c5a112363cdfd820acad2ab234f91d43f0db8fed0cec400a1109ad8f99c21b5b74f59e8bb00d"
 					attemptChan <- attempt
@@ -89,6 +90,7 @@ out:
 					break
 				}
 			}
+			usedLetterChan <- usedLetters
 			responseChan <- wordDash
 			attemptChan <- attempt
 			fmt.Println("Fin de l'envoie")
