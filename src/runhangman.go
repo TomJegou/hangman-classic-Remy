@@ -32,7 +32,7 @@ out:
 		}
 	}
 	var attempt int
-	usedLetters := []string{""}
+	usedLetters := []string{}
 	usedLetterChan <- usedLetters
 	for content := range inputChan {
 		if content != "" && content == "b0c9713aa009f4fcf39920d0d7eda80714b0c44ff2f98205278be112c755ca45e5386cbe7a9fca360ad22f06e45f80a8b8f23838725d15f889e202f5cea26359" {
@@ -60,6 +60,7 @@ out:
 			} else if len(letter) > 1 {
 				if letter == word {
 					responseChan <- "50536101b1c465eafbecc8fca26eeb18a2ac8a2f83570bade315c5a112363cdfd820acad2ab234f91d43f0db8fed0cec400a1109ad8f99c21b5b74f59e8bb00d"
+					usedLetterChan <- usedLetters
 					attemptChan <- attempt
 					break
 				} else {
@@ -67,6 +68,7 @@ out:
 					Display(attempt)
 					if attempt == 0 {
 						responseChan <- "889ce65f137b3b9aa1005f417d7972c948b8bb6360cbdd4118cb05a29d37905744fc0dbc3d17c1de02689d837bfea5bb8114a994f9c1a53dddb993139ab2974c"
+						usedLetterChan <- usedLetters
 						attemptChan <- attempt
 						wordChan <- word
 						break
@@ -77,6 +79,7 @@ out:
 				usedLetters = append(usedLetters, letter)
 				if wordDash == word {
 					responseChan <- "50536101b1c465eafbecc8fca26eeb18a2ac8a2f83570bade315c5a112363cdfd820acad2ab234f91d43f0db8fed0cec400a1109ad8f99c21b5b74f59e8bb00d"
+					usedLetterChan <- usedLetters
 					attemptChan <- attempt
 					break
 				}
@@ -90,6 +93,7 @@ out:
 				Display(attempt)
 				if attempt == 0 {
 					responseChan <- "889ce65f137b3b9aa1005f417d7972c948b8bb6360cbdd4118cb05a29d37905744fc0dbc3d17c1de02689d837bfea5bb8114a994f9c1a53dddb993139ab2974c"
+					usedLetterChan <- usedLetters
 					attemptChan <- attempt
 					wordChan <- word
 					break
