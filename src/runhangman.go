@@ -16,14 +16,12 @@ out:
 			fmt.Println("Quiting Hangman")
 			return
 		case level := <-levelChan:
-			fmt.Println(level)
 			word = GetWord(level)
 			break out
 		default:
 			continue
 		}
 	}
-	fmt.Println(word)
 	wordDash := Dash(word)
 	responseChan <- wordDash
 	for content := range inputChan {
@@ -41,7 +39,6 @@ out:
 	}
 	attempt = 10
 	attemptChan <- attempt
-	fmt.Println("bienvenu dans la boucle")
 	for {
 		select {
 		default:
@@ -50,7 +47,6 @@ out:
 			fmt.Println("Quiting Hangman")
 			return
 		case input := <-inputChan:
-			fmt.Println("Début de la boucle de hang")
 			letter := StartGame(input)
 			fmt.Println(letter)
 			if !CheckUsedLetter(usedLetters, letter) {
@@ -102,7 +98,6 @@ out:
 			usedLetterChan <- usedLetters
 			responseChan <- wordDash
 			attemptChan <- attempt
-			fmt.Println("Fin de l'envoie")
 		}
 	}
 }
