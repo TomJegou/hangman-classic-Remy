@@ -48,7 +48,6 @@ out:
 			return
 		case input := <-inputChan:
 			letter := StartGame(input)
-			fmt.Println(letter)
 			if !CheckUsedLetter(usedLetters, letter) {
 				if letter != "" {
 					fmt.Println("\033[31mYou already try it once !\033[0m")
